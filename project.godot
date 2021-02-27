@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Events="*res://src/autoload/Events.gd"
+PlayerData="*res://src/autoload/PlayerData.gd"
 
 [display]
 
@@ -96,6 +97,7 @@ pickup={
 2d_physics/layer_1="player"
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="static"
+2d_physics/layer_4="Boss"
 
 [rendering]
 

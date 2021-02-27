@@ -1,7 +1,18 @@
 extends KinematicBody2D
 
 var picked = false
+onready var animator = $AnimationPlayer
 
+func _ready() -> void:
+	animator.play("Idle")
+
+func _on_EnemyHitDetector_body_entered(body: Node) -> void:
+	if body.is_in_group('enemy'):
+		Events.emit_signal("hit_enemy", body)
+		die()
+	if body.is_in_group('door'):
+		Events.emit_signal("hit_door", body)
+		die()
 
 func _physics_process(delta: float) -> void:
 	if picked == true:
@@ -20,3 +31,6 @@ func _input(event: InputEvent) -> void:
 			picked = false
 			#TODO DROP ITEM
 				
+
+func die() -> void:
+	queue_free()

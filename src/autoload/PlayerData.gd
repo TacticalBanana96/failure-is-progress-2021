@@ -11,7 +11,7 @@ func _ready() -> void:
 func set_score(currentScore: int) -> void:
 	score = currentScore
 	
-func increment_deaths(position) -> void:
+func increment_deaths(position, spawn) -> void:
 	deaths += 1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

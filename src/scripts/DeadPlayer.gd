@@ -16,7 +16,6 @@ func _on_EnemyHitDetector_body_entered(body: Node) -> void:
 
 func _physics_process(delta: float) -> void:
 	if picked == true:
-		print("Picked true")
 		self.position = get_tree().get_root().get_node("TestLevel/Player/Hand").global_position
 
 func _input(event: InputEvent) -> void:

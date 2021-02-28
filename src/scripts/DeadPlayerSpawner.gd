@@ -6,8 +6,9 @@ const DEAD_PLAYER = preload("res://src/actors/DeadPlayer.tscn")
 func _ready() -> void:
 	Events.connect("player_died", self, "on_player_died_spawn_corpse") 
 
-func on_player_died_spawn_corpse(position):
-	spawn(DEAD_PLAYER, position)
+func on_player_died_spawn_corpse(position, spawn):
+	if spawn == true:
+		spawn(DEAD_PLAYER, position)
 	
 func spawn(object, position):
 	print(position)

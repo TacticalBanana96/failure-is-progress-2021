@@ -15,7 +15,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_released("die"):
-		die()
+		die(true)
 	var direction: = get_direction()
 	if direction != Vector2.ZERO:
 		angle_face(direction)
@@ -47,15 +47,18 @@ func calculate_move_velocity(
 	out = acceleration * direction.normalized()
 	return out
 
-func die() -> void:
+func die(spawn: bool) -> void:
 	#send off player died signal with current position, (to spawn dead body with)
 	#move player back to original screen
-	Events.emit_signal("player_died", position)
+	Events.emit_signal("player_died", position, spawn)
 	position = spawnPosition
 	#queue_free()
 
 
 func _on_EnemyHitDetector_body_entered(body: Node) -> void:
+	var spawn = true
 	if body.is_in_group('enemy'):
+		if body.is_in_group('bomb'):
+			spawn = false
 		Events.emit_signal("hit_enemy", body)
-		die()
+		die(spawn)

@@ -9,6 +9,7 @@ func _ready() -> void:
 func on_player_died_spawn_corpse(position, spawn):
 	if spawn == true:
 		spawn(DEAD_PLAYER, position)
+		Events.emit_signal("CorpseSpawned")
 	
 func spawn(object, position):
 	print(position)

@@ -32,4 +32,5 @@ func _input(event: InputEvent) -> void:
 				
 
 func die() -> void:
+	Events.emit_signal("CorpseDestroyed")
 	queue_free()

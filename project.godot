@@ -16,13 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="FailureIsProgress"
-run/main_scene="res://src/levels/TestLevel.tscn"
+run/main_scene="res://src/screens/MainScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Events="*res://src/autoload/Events.gd"
 PlayerData="*res://src/autoload/PlayerData.gd"
+AmbientSound="*res://src/actors/AmbientSound.tscn"
 
 [display]
 
@@ -99,6 +100,7 @@ pickup={
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="static"
 2d_physics/layer_4="Boss"
+2d_physics/layer_5="pickup"
 
 [rendering]
 

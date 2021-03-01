@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/scripts/ChangeSceneButton.gd" type="Script" id=1]
+[ext_resource path="res://src/userinterface/ChangeSceneButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/main_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/images/main_image.png" type="Texture" id=4]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.435294, 0.435294, 0.435294, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -57.2449
+margin_top = -82.5852
+margin_right = 52.7551
+margin_bottom = -37.5852
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeSceneButton2" type="Button" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 110.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "BACK"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_scene_path = "res://src/screens/MainScreen.tscn"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 64.6273
+margin_top = 40.7893
+margin_right = 244.627
+margin_bottom = 152.789
+theme = ExtResource( 3 )
+text = "GamePlay and art
+	tactical banana
+	
+Ambient sound:
+freesounds.org
+klankbeeld"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="VBoxContainer/ChangeSceneButton2" to="VBoxContainer/ChangeSceneButton2" method="_on_ChangeSceneButton_button_up"]

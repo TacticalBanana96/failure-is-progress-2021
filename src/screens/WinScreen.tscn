@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/scripts/ChangeSceneButton.gd" type="Script" id=1]
+[ext_resource path="res://src/userinterface/ChangeSceneButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/main_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/images/main_image.png" type="Texture" id=4]
+
+[node name="WinScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.67645
+margin_top = 50.0565
+margin_right = 311.676
+margin_bottom = 116.056
+theme = ExtResource( 3 )
+text = "ALl the humans have perished
+
+you win"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -57.9123
+margin_top = -71.239
+margin_right = 52.0877
+margin_bottom = -26.239
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeSceneButton2" type="Button" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 110.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Menu"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_scene_path = "res://src/screens/MainScreen.tscn"
+[connection signal="button_up" from="VBoxContainer/ChangeSceneButton2" to="VBoxContainer/ChangeSceneButton2" method="_on_ChangeSceneButton_button_up"]

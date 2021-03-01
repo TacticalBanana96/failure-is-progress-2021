@@ -7,7 +7,7 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
-export var direction: Vector2 = Vector2.UP
+export var direction: Vector2 = Vector2.ZERO
 export var score: = 100
 export var health: int = 1
 
@@ -24,13 +24,11 @@ func _on_enemy_hit(enemy) -> void:
 			die()
 
 func _physics_process(delta: float) -> void:
-	print("BOMB",_velocity)
 	if is_on_wall():
 		_velocity = _velocity * -1.0
 	if _velocity != Vector2.ZERO:
-		animationTree.set("parameters/Idle/blend_position", direction)
-		animationTree.set("parameters/Run/blend_position", direction)
-		animationState.travel("Run")
+		animationTree.set("parameters/Walk/blend_position",  _velocity.normalized())
+		animationState.travel("Walk")
 	else:
 		animationState.travel("Idle")
 		

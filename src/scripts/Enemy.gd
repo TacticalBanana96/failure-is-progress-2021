@@ -3,6 +3,10 @@ extends KinematicBody2D
 var _velocity: Vector2 = Vector2.ZERO
 var speed: float = 100
 
+onready var animationPlayer = $AnimationPlayer
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
+
 export var direction: Vector2 = Vector2.UP
 export var score: = 100
 export var health: int = 1
@@ -22,6 +26,11 @@ func _on_enemy_hit(enemy) -> void:
 func _physics_process(delta: float) -> void:
 	if is_on_wall():
 		_velocity = _velocity * -1.0
+	if _velocity != Vector2.ZERO:
+		animationTree.set("parameters/Walk/blend_position",  _velocity.normalized())
+		animationState.travel("Walk")
+	else:
+		animationState.travel("Idle")
 	move_and_slide(_velocity)
 	#_velocity.y = move_and_slide(_velocity).y
 	

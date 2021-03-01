@@ -23,14 +23,13 @@ animation = "WalkRight"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id=12]
 blend_point_0/node = SubResource( 8 )
-blend_point_0/pos = Vector2( 0, 1.1 )
+blend_point_0/pos = Vector2( 0, 1 )
 blend_point_1/node = SubResource( 9 )
 blend_point_1/pos = Vector2( 0, -1 )
 blend_point_2/node = SubResource( 10 )
 blend_point_2/pos = Vector2( -1, 0 )
 blend_point_3/node = SubResource( 11 )
 blend_point_3/pos = Vector2( 1, 0 )
-max_space = Vector2( 1, 1.1 )
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
@@ -39,16 +38,16 @@ max_space = Vector2( 1, 1.1 )
 [sub_resource type="AnimationNodeStateMachine" id=15]
 states/Idle/node = SubResource( 7 )
 states/Idle/position = Vector2( 260, 211 )
-states/Run/node = SubResource( 12 )
-states/Run/position = Vector2( 452, 203 )
-transitions = [ "Idle", "Run", SubResource( 13 ), "Run", "Idle", SubResource( 14 ) ]
+states/Walk/node = SubResource( 12 )
+states/Walk/position = Vector2( 452, 203 )
+transitions = [ "Idle", "Walk", SubResource( 13 ), "Walk", "Idle", SubResource( 14 ) ]
 start_node = "Idle"
+graph_offset = Vector2( -493.407, 0 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=16]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
-length = 0.1
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -225,7 +224,7 @@ tree_root = SubResource( 15 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 16 )
-parameters/Run/blend_position = Vector2( -0.00101316, 0.964179 )
+parameters/Walk/blend_position = Vector2( 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )

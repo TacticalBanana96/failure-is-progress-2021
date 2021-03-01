@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/audio/explosion.wav" type="AudioStream" id=1]
+
+[node name="ExplosionAudio" type="AudioStreamPlayer2D"]
+stream = ExtResource( 1 )
+pitch_scale = 1.5

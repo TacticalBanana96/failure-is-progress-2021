@@ -7,6 +7,12 @@ var deaths := 0
 func _ready() -> void:
 	Events.connect("score_updated", self, "set_score")
 	Events.connect("player_died", self, "increment_deaths")
+	Events.connect("win", self, "clear")
+	Events.connect("lose", self, "clear")
+
+func clear():
+	score = 0
+	deaths = 0
 
 func set_score(currentScore: int) -> void:
 	score = currentScore

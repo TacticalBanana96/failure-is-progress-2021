@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.00479617, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.959233, 0.772727 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.441624, 0.989848 )
+colors = PoolColorArray( 1, 0.996033, 0.898438, 1, 1, 0.991211, 0.4375, 1, 1, 0.277344, 0.277344, 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.63
+lifetime_randomness = 0.13
+emission_shape = 1
+emission_sphere_radius = 8.0
+gravity = Vector2( 0, 0 )
+radial_accel = 100.0
+radial_accel_random = 0.03
+angle = 45.0
+angle_random = 0.73
+scale_amount = 3.0
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
